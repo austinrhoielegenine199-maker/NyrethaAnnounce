@@ -1,2 +1,8 @@
-title: "&6&lᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ"
-sound: "ENTITY_ENDER_DRAGON_GROWL"
+title: "&e&lᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ"
+subtitle: "&f%message%"
+
+sound:
+  enabled: true
+  name: "BLOCK_NOTE_BLOCK_PLING"
+  volume: 1.0
+  pitch: 1.0
