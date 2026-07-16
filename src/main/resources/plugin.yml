@@ -6,11 +6,11 @@ api-version: '1.21'
 
 commands:
   announce:
-    description: Send an announcement to the server
+    description: Send a title announcement to all players
     usage: /announce <message>
     permission: announce.use
 
 permissions:
   announce.use:
-    description: Allows the player to use /announce
+    description: Allows the player to use /announce and /announce reload
     default: op
