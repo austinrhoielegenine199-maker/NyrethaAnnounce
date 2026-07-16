@@ -3,3 +3,14 @@ version: 1.0
 author: ArchiveAustin
 main: me.nyrethaannounce.NyrethaAnnounce
 api-version: '1.21'
+
+commands:
+  announce:
+    description: Send an announcement to the server
+    usage: /announce <message>
+    permission: announce.use
+
+permissions:
+  announce.use:
+    description: Allows the player to use /announce
+    default: op
