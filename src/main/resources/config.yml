@@ -1,6 +1,11 @@
 title: "&e&lᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ"
 subtitle: "&f%message%"
 
+title-times:
+  fade-in: 10
+  stay: 70
+  fade-out: 20
+
 sound:
   enabled: true
   name: "BLOCK_NOTE_BLOCK_PLING"
