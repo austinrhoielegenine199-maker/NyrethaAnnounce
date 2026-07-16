@@ -1,12 +1,5 @@
 name: NyrethaAnnounce
-version: 1.0.0
-main: me.nyrethaannounce.NyrethaAnnounce
-api-version: 1.21
+version: 1.0
 author: ArchiveAustin
-description: Custom Announcement Plugin with colors & sound
-
-commands:
-  announce:
-    description: Send server announcement
-    aliases: [bc, broadcast]
-    permission: announce.use
+main: me.nyrethaannounce.NyrethaAnnounce
+api-version: '1.21'
