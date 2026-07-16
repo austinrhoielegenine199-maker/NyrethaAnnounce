@@ -49,13 +49,33 @@ public class NyrethaAnnounce extends JavaPlugin {
 
         String title = ChatColor.translateAlternateColorCodes(
                 '&',
-                getConfig().getString("title", "&b&lANNOUNCEMENT")
+                getConfig().getString(
+                        "title",
+                        "&b&lANNOUNCEMENT"
+                )
         );
 
         String subtitle = ChatColor.translateAlternateColorCodes(
                 '&',
-                getConfig().getString("subtitle", "&f%message%")
-                        .replace("%message%", message)
+                getConfig().getString(
+                        "subtitle",
+                        "&f%message%"
+                ).replace("%message%", message)
+        );
+
+        int fadeIn = getConfig().getInt(
+                "title-times.fade-in",
+                10
+        );
+
+        int stay = getConfig().getInt(
+                "title-times.stay",
+                70
+        );
+
+        int fadeOut = getConfig().getInt(
+                "title-times.fade-out",
+                20
         );
 
         for (Player player : getServer().getOnlinePlayers()) {
@@ -63,27 +83,51 @@ public class NyrethaAnnounce extends JavaPlugin {
             player.sendTitle(
                     title,
                     subtitle,
-                    10,
-                    70,
-                    20
+                    fadeIn,
+                    stay,
+                    fadeOut
             );
 
-            if (getConfig().getBoolean("sound.enabled", true)) {
+            if (getConfig().getBoolean(
+                    "sound.enabled",
+                    true
+            )) {
 
                 try {
+
                     Sound sound = Sound.valueOf(
-                            getConfig()
-                                    .getString(
-                                            "sound.name",
-                                            "BLOCK_NOTE_BLOCK_PLING"
-                                    )
-                                    .toUpperCase()
+                            getConfig().getString(
+                                    "sound.name",
+                                    "BLOCK_NOTE_BLOCK_PLING"
+                            ).toUpperCase()
                     );
 
-                    float volume = (float) getConfig()
-                            .getDouble("sound.volume", 1.0);
+                    float volume = (float) getConfig().getDouble(
+                            "sound.volume",
+                            1.0
+                    );
 
-                    float pitch = (float) getConfig()
-                            .getDouble("sound.pitch", 1.0);
+                    float pitch = (float) getConfig().getDouble(
+                            "sound.pitch",
+                            1.0
+                    );
 
-                    player.play
+                    player.playSound(
+                            player.getLocation(),
+                            sound,
+                            volume,
+                            pitch
+                    );
+
+                } catch (IllegalArgumentException e) {
+
+                    getLogger().warning(
+                            "Invalid sound in config.yml!"
+                    );
+                }
+            }
+        }
+
+        return true;
+    }
+}
